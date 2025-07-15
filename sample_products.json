@@ -1,0 +1,668 @@
+[
+  {
+    "model": "api.category",
+    "pk": 1,
+    "fields": {
+      "name": "Bicicletas"
+    }
+  },
+  {
+    "model": "api.category",
+    "pk": 2,
+    "fields": {
+      "name": "Accesorios"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 1,
+    "fields": {
+      "name": "Velociride Pro",
+      "price": "799.99",
+      "description": "Bicicleta de ruta de alto rendimiento, ideal para ciclistas profesionales.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/hJbDf7kr/roa-bike1.webp",
+      "stock": 12,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 2,
+    "fields": {
+      "name": "AeroBlade 500",
+      "price": "1249.50",
+      "description": "Diseñada para competencias, con cuadro aerodinámico y componentes de alta gama.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/JWd1vx1s/roa-bike2.webp",
+      "stock": 8,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 3,
+    "fields": {
+      "name": "Stratus One",
+      "price": "789.00",
+      "description": "Bicicleta híbrida ideal para la ciudad y paseos largos, con un diseño elegante y cómodo.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/MDQm77wB/roa-bike3.jpg",
+      "stock": 15,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 4,
+    "fields": {
+      "name": "RoadCruze XR",
+      "price": "599.99",
+      "description": "Perfecta para desplazamientos diarios, con materiales de calidad y peso optimizado.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/hRQw0yb2/roa-bike4.jpg",
+      "stock": 20,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 5,
+    "fields": {
+      "name": "CarbonFlow R20",
+      "price": "1390.75",
+      "description": "Bicicleta de ruta de alta gama con cuadro de carbono y componentes de última generación.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/27XfJp99/montain1.jpg",
+      "stock": 5,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 6,
+    "fields": {
+      "name": "E-Rider X",
+      "price": "950.00",
+      "description": "Bicicleta eléctrica urbana con motor silencioso y batería de larga duración.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/YBqhgYzK/e-bike2.jpg",
+      "stock": 7,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 7,
+    "fields": {
+      "name": "VoltEdge",
+      "price": "1199.99",
+      "description": "Bicicleta eléctrica de alto rendimiento para recorridos largos.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/1Ghvkvvx/e-bike1.webp",
+      "stock": 5,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 8,
+    "fields": {
+      "name": "EcoMotion",
+      "price": "899.50",
+      "description": "Bicicleta eléctrica compacta y ligera, ideal para la ciudad.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/pCvn3TZ/e-bike3.jpg",
+      "stock": 10,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 9,
+    "fields": {
+      "name": "PowerRide",
+      "price": "1050.00",
+      "description": "Bicicleta eléctrica robusta para todo tipo de terreno.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/XRnBf30/e-bike4.jpg",
+      "stock": 8,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 10,
+    "fields": {
+      "name": "Montana X",
+      "price": "650.00",
+      "description": "Bicicleta de montaña resistente para terrenos difíciles.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/SXKTbQWj/mon-bike6.jpg",
+      "stock": 12,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 11,
+    "fields": {
+      "name": "TrailMaster",
+      "price": "720.00",
+      "description": "Ideal para rutas de montaña y senderos exigentes.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/M5R5TB9T/mon-bike2.jpg",
+      "stock": 10,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 12,
+    "fields": {
+      "name": "RockRider",
+      "price": "800.00",
+      "description": "Máxima estabilidad y control en bajadas.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/ns62YPdT/mon-bike4.jpg",
+      "stock": 15,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 13,
+    "fields": {
+      "name": "PeakPro",
+      "price": "950.00",
+      "description": "Rendimiento superior en montaña y caminos rocosos.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/1fNHcjT7/mon-bike5.webp",
+      "stock": 13,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 14,
+    "fields": {
+      "name": "Summit",
+      "price": "990.00",
+      "description": "Ligera y ágil para ascensos rápidos.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/9kpYqxjP/mon-bike1.jpg",
+      "stock": 11,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 15,
+    "fields": {
+      "name": "KidRider Mini",
+      "price": "299.99",
+      "description": "Bicicleta para niños con diseño seguro y colores llamativos.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/yFbxJPg9/kid-bike4.jpg",
+      "stock": 12,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 16,
+    "fields": {
+      "name": "JuniorSpeed",
+      "price": "349.99",
+      "description": "Bicicleta ligera para niños, ideal para aprender a pedalear.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/0jMYPc5g/kid-bike3.jpg",
+      "stock": 15,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 17,
+    "fields": {
+      "name": "LittleExplorer",
+      "price": "319.99",
+      "description": "Bicicleta para niños con ruedas de apoyo y diseño ergonómico.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/bgX8M0r8/kid-bike2.jpg",
+      "stock": 13,
+      "type": "bicycle"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 18,
+    "fields": {
+      "name": "FunRide Kids",
+      "price": "279.99",
+      "description": "Bicicleta divertida y segura para los más pequeños.",
+      "category": 1,
+      "image_url": "https://i.ibb.co/ZpFCw2m9/kid-bike1.jpg",
+      "stock": 10,
+      "type": "bicycle"
+    }
+  },
+
+  
+
+  {
+    "model": "api.bicycle",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "bike_type": "Ruta",
+      "wheel_size": 28,
+      "color": "Azul",
+      "material": "Carbono",
+      "weight": "7.2"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "bike_type": "Ruta",
+      "wheel_size": 29,
+      "color": "Verde azulado",
+      "material": "Aluminio",
+      "weight": "11.0"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "bike_type": "Ruta",
+      "wheel_size": 27,
+      "color": "Azul",
+      "material": "Aluminio",
+      "weight": "9.8"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "bike_type": "Ruta",
+      "wheel_size": 26,
+      "color": "Blanca",
+      "material": "Acero reciclado",
+      "weight": "10.5"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "bike_type": "Ruta",
+      "wheel_size": 29,
+      "color": "Blanca",
+      "material": "Carbono",
+      "weight": "9.2"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "bike_type": "Electrica",
+      "wheel_size": 27,
+      "color": "Cafe",
+      "material": "Aluminio",
+      "weight": "18.5"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "bike_type": "Electrica",
+      "wheel_size": 28,
+      "color": "Cafe claro",
+      "material": "Carbono",
+      "weight": "17.2"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 8,
+    "fields": {
+      "product": 8,
+      "bike_type": "Electrica",
+      "wheel_size": 26,
+      "color": "Dorado",
+      "material": "Aluminio",
+      "weight": "16.8"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 9,
+    "fields": {
+      "product": 9,
+      "bike_type": "Electrica",
+      "wheel_size": 29,
+      "color": "Celeste",
+      "material": "Acero",
+      "weight": "19.0"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 10,
+    "fields": {
+      "product": 10,
+      "bike_type": "Montaña",
+      "wheel_size": 27,
+      "color": "Amarilla",
+      "material": "Aluminio",
+      "weight": "13.5"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 11,
+    "fields": {
+      "product": 11,
+      "bike_type": "Montaña",
+      "wheel_size": 29,
+      "color": "Verde/Celeste",
+      "material": "Acero",
+      "weight": "14.2"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 12,
+    "fields": {
+      "product": 12,
+      "bike_type": "Montaña",
+      "wheel_size": 28,
+      "color": "Verde",
+      "material": "Aluminio",
+      "weight": "12.8"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 13,
+    "fields": {
+      "product": 13,
+      "bike_type": "Montaña",
+      "wheel_size": 27,
+      "color": "Gris",
+      "material": "Carbono",
+      "weight": "11.9"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 14,
+    "fields": {
+      "product": 14,
+      "bike_type": "Montaña",
+      "wheel_size": 29,
+      "color": "Negra",
+      "material": "Aluminio",
+      "weight": "13.0"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 15,
+    "fields": {
+      "product": 15,
+      "bike_type": "Niños",
+      "wheel_size": 16,
+      "color": "Azul",
+      "material": "Aluminio",
+      "weight": "8.0"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 16,
+    "fields": {
+      "product": 16,
+      "bike_type": "Niños",
+      "wheel_size": 18,
+      "color": "Rojo",
+      "material": "Acero",
+      "weight": "9.0"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 17,
+    "fields": {
+      "product": 17,
+      "bike_type": "Niños",
+      "wheel_size": 14,
+      "color": "Verde",
+      "material": "Aluminio",
+      "weight": "7.5"
+    }
+  },
+  {
+    "model": "api.bicycle",
+    "pk": 18,
+    "fields": {
+      "product": 18,
+      "bike_type": "Niños",
+      "wheel_size": 12,
+      "color": "Celeste",
+      "material": "Acero",
+      "weight": "6.8"
+    }
+  },
+
+
+  
+  {
+    "model": "api.bicyclesale",
+    "pk": 1,
+    "fields": {
+      "bicycle": 1,
+      "quantity": 8,
+      "sale_date": "2024-07-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 2,
+    "fields": {
+      "bicycle": 3,
+      "quantity": 5,
+      "sale_date": "2024-07-02T15:30:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 3,
+    "fields": {
+      "bicycle": 5,
+      "quantity": 14,
+      "sale_date": "2024-07-03T12:15:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 4,
+    "fields": {
+      "bicycle": 2,
+      "quantity": 4,
+      "sale_date": "2024-07-04T09:45:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 5,
+    "fields": {
+      "bicycle": 4,
+      "quantity": 10,
+      "sale_date": "2024-07-05T18:00:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 6,
+    "fields": {
+      "bicycle": 6,
+      "quantity": 2,
+      "sale_date": "2024-07-06T11:20:00Z"
+    }
+  },
+  {
+    "model": "api.bicyclesale",
+    "pk": 7,
+    "fields": {
+      "bicycle": 7,
+      "quantity": 7,
+      "sale_date": "2024-07-07T14:10:00Z"
+    }
+  },
+
+  
+  {
+    "model": "api.product",
+    "pk": 19,
+    "fields": {
+      "name": "Casco AeroLite",
+      "price": "79.99",
+      "description": "Casco ligero y aerodinámico para ciclismo de carretera.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/zTFQNYH4/helmet4.webp",
+      "stock": 10,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 20,
+    "fields": {
+      "name": "Casco TrailSafe",
+      "price": "89.99",
+      "description": "Protección extendida para ciclismo de montaña.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/zVb5S7qQ/helmet3.webp",
+      "stock": 6,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 21,
+    "fields": {
+      "name": "Casco CityRide",
+      "price": "69.50",
+      "description": "Diseño urbano con ventilación y estilo.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/8k074H7/helmet1.webp",
+      "stock": 15,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 22,
+    "fields": {
+      "name": "Casco EcoProtect",
+      "price": "59.99",
+      "description": "Fabricado con materiales reciclados sin sacrificar seguridad.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/3m7ftXWg/helmet2.webp",
+      "stock": 9,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 23,
+    "fields": {
+      "name": "Luz Frontal LED X100",
+      "price": "29.90",
+      "description": "Iluminación potente para recorridos nocturnos.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/FkcSJD1t/light3.webp",
+      "stock": 25,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 24,
+    "fields": {
+      "name": "Luz Trasera FlashSafe",
+      "price": "19.90",
+      "description": "Alta visibilidad desde atrás, con múltiples modos de parpadeo.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/B5DhmPmK/light2.webp",
+      "stock": 30,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 25,
+    "fields": {
+      "name": "Luz y Bocina Duo",
+      "price": "39.99",
+      "description": "Luz y bocina combinadas para mayor seguridad en la carretera.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/Lz2h22hT/light1.webp",
+      "stock": 18,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 26,
+    "fields": {
+      "name": "Guantes GripPro",
+      "price": "19.99",
+      "description": "Guantes ergonómicos con excelente agarre y transpirabilidad.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/WWDKp7Q7/gloves3.webp",
+      "stock": 14,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 27,
+    "fields": {
+      "name": "Guantes TrailGrip",
+      "price": "24.99",
+      "description": "Guantes de montaña con refuerzos en las palmas.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/8gYvH4f6/gloves2.webp",
+      "stock": 20,
+      "type": "accessory"
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 28,
+    "fields": {
+      "name": "Guantes CityRide",
+      "price": "14.99",
+      "description": "Guantes ligeros y cómodos para uso urbano.",
+      "category": 2,
+      "image_url": "https://i.ibb.co/VYRsVLhN/gloves1.webp",
+      "stock": 22,
+      "type": "accessory"
+    }
+  }
+]
+ 
