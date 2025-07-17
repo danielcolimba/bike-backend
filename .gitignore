@@ -17,3 +17,6 @@ local_settings.py
 .idea/
 # Ignore Python bytecode files
 *.py[cod]
+frontend_cart_example.js
+test_cart_final.py
+test_cart.py
