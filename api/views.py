@@ -109,46 +109,67 @@ class BuyCheckoutView(APIView):
                         # Buscar el producto
                         product = Product.objects.get(id=product_id)
                         
-                        # Verificar que sea una bicicleta
-                        if product.type != 'bicycle':
-                            return Response(
-                                {"error": f"El producto {product.name} no es una bicicleta"}, 
-                                status=status.HTTP_400_BAD_REQUEST
-                            )
-                        
-                        # Obtener la bicicleta asociada
-                        bicycle = product.bicycle
+                        print(f"DEBUG: Producto encontrado - ID: {product.id}, Nombre: {product.name}, Tipo: {product.type}, Stock: {product.stock}")
                         
                         # Verificar stock disponible
                         if product.stock < quantity:
+                            print(f"DEBUG: ERROR - Stock insuficiente para {product.name}. Disponible: {product.stock}, Solicitado: {quantity}")
                             return Response(
                                 {"error": f"Stock insuficiente para {product.name}. Disponible: {product.stock}, Solicitado: {quantity}"}, 
                                 status=status.HTTP_400_BAD_REQUEST
                             )
                         
-                        # Crear la venta
-                        sale = BicycleSale.objects.create(
-                            bicycle=bicycle,
-                            user=user,
-                            quantity=quantity
-                        )
-                        created_sales.append(sale)
+                        # Manejar diferentes tipos de productos
+                        if product.type == 'bicycle':
+                            # Para bicicletas, crear registro en BicycleSale
+                            try:
+                                bicycle = product.bicycle
+                                print(f"DEBUG: Bicicleta asociada encontrada")
+                                
+                                sale = BicycleSale.objects.create(
+                                    bicycle=bicycle,
+                                    user=user,
+                                    quantity=quantity
+                                )
+                                created_sales.append(sale)
+                                print(f"DEBUG: Venta de bicicleta creada - Sale ID: {sale.id}, Producto: {product.name}")
+                                
+                            except Bicycle.DoesNotExist:
+                                print(f"DEBUG: ERROR - No se encontró bicicleta asociada al producto {product.name}")
+                                return Response(
+                                    {"error": f"Bicicleta asociada al producto {product_id} no encontrada"}, 
+                                    status=status.HTTP_404_NOT_FOUND
+                                )
                         
-                        # Reducir el stock
+                        elif product.type == 'accessory':
+                            # Para accesorios, solo registramos la compra (podrías crear un modelo AccessorySale si quieres)
+                            print(f"DEBUG: Procesando accesorio - {product.name}")
+                            # Por ahora solo reducimos el stock, pero podrías crear un modelo separado para accesorios
+                        
+                        else:
+                            print(f"DEBUG: ERROR - Tipo de producto no soportado: {product.type}")
+                            return Response(
+                                {"error": f"Tipo de producto no soportado: {product.type}"}, 
+                                status=status.HTTP_400_BAD_REQUEST
+                            )
+                        
+                        # Reducir el stock para todos los tipos de productos
                         product.stock -= quantity
                         product.save()
                         
-                        print(f"DEBUG: Venta creada - Sale ID: {sale.id}, Producto: {product.name}")
+                        print(f"DEBUG: Stock actualizado para {product.name} - Nuevo stock: {product.stock}")
                         
                     except Product.DoesNotExist:
+                        print(f"DEBUG: ERROR - Producto con ID {product_id} no encontrado en la base de datos")
                         return Response(
                             {"error": f"Producto con ID {product_id} no encontrado"}, 
                             status=status.HTTP_404_NOT_FOUND
                         )
-                    except Bicycle.DoesNotExist:
+                    except Exception as item_error:
+                        print(f"DEBUG: ERROR - Error procesando producto {product_id}: {str(item_error)}")
                         return Response(
-                            {"error": f"Bicicleta asociada al producto {product_id} no encontrada"}, 
-                            status=status.HTTP_404_NOT_FOUND
+                            {"error": f"Error procesando producto {product_id}: {str(item_error)}"}, 
+                            status=status.HTTP_500_INTERNAL_SERVER_ERROR
                         )
                 
                 # Reducir el crédito del usuario
@@ -167,7 +188,7 @@ class BuyCheckoutView(APIView):
                 
                 return Response({
                     "message": "Compra realizada con éxito",
-                    "sales_created": len(created_sales),
+                    "bicycle_sales_created": len(created_sales),
                     "total_amount": str(total_amount),
                     "remaining_credit": str(user_profile.credit)
                 }, status=status.HTTP_200_OK)
