@@ -18,6 +18,7 @@ class Product(models.Model):
     image_url = models.URLField(blank=True)
     stock = models.IntegerField(default=0)
     type = models.CharField(max_length=20, choices=PRODUCT_TYPES)
+    discount = models.IntegerField(default=0)
 
 class Bicycle(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True)
@@ -29,5 +30,6 @@ class Bicycle(models.Model):
 
 class BicycleSale(models.Model):
     bicycle = models.ForeignKey(Bicycle, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
     sale_date = models.DateTimeField(auto_now_add=True)

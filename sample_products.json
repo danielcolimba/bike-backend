@@ -23,7 +23,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/hJbDf7kr/roa-bike1.webp",
       "stock": 12,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -36,7 +37,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/JWd1vx1s/roa-bike2.webp",
       "stock": 8,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -49,7 +51,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/MDQm77wB/roa-bike3.jpg",
       "stock": 15,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -62,7 +65,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/hRQw0yb2/roa-bike4.jpg",
       "stock": 20,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -75,7 +79,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/27XfJp99/montain1.jpg",
       "stock": 5,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -88,7 +93,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/YBqhgYzK/e-bike2.jpg",
       "stock": 7,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -101,7 +107,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/1Ghvkvvx/e-bike1.webp",
       "stock": 5,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -114,7 +121,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/pCvn3TZ/e-bike3.jpg",
       "stock": 10,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 10
     }
   },
   {
@@ -127,7 +135,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/XRnBf30/e-bike4.jpg",
       "stock": 8,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -140,7 +149,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/SXKTbQWj/mon-bike6.jpg",
       "stock": 12,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 13
     }
   },
   {
@@ -153,7 +163,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/M5R5TB9T/mon-bike2.jpg",
       "stock": 10,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -166,7 +177,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/ns62YPdT/mon-bike4.jpg",
       "stock": 15,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 12
     }
   },
   {
@@ -179,7 +191,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/1fNHcjT7/mon-bike5.webp",
       "stock": 13,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -192,7 +205,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/9kpYqxjP/mon-bike1.jpg",
       "stock": 11,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -205,7 +219,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/yFbxJPg9/kid-bike4.jpg",
       "stock": 12,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -218,7 +233,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/0jMYPc5g/kid-bike3.jpg",
       "stock": 15,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -231,7 +247,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/bgX8M0r8/kid-bike2.jpg",
       "stock": 13,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
   {
@@ -244,7 +261,8 @@
       "category": 1,
       "image_url": "https://i.ibb.co/ZpFCw2m9/kid-bike1.jpg",
       "stock": 10,
-      "type": "bicycle"
+      "type": "bicycle",
+      "discount": 0
     }
   },
 
@@ -474,6 +492,7 @@
     "pk": 1,
     "fields": {
       "bicycle": 1,
+      "user":1,
       "quantity": 8,
       "sale_date": "2024-07-01T10:00:00Z"
     }
@@ -483,6 +502,7 @@
     "pk": 2,
     "fields": {
       "bicycle": 3,
+      "user":1,
       "quantity": 5,
       "sale_date": "2024-07-02T15:30:00Z"
     }
@@ -492,6 +512,7 @@
     "pk": 3,
     "fields": {
       "bicycle": 5,
+      "user":1,
       "quantity": 14,
       "sale_date": "2024-07-03T12:15:00Z"
     }
@@ -501,6 +522,7 @@
     "pk": 4,
     "fields": {
       "bicycle": 2,
+      "user":2,
       "quantity": 4,
       "sale_date": "2024-07-04T09:45:00Z"
     }
@@ -510,6 +532,7 @@
     "pk": 5,
     "fields": {
       "bicycle": 4,
+      "user":2,
       "quantity": 10,
       "sale_date": "2024-07-05T18:00:00Z"
     }
@@ -519,6 +542,7 @@
     "pk": 6,
     "fields": {
       "bicycle": 6,
+      "user":2,
       "quantity": 2,
       "sale_date": "2024-07-06T11:20:00Z"
     }
@@ -528,6 +552,7 @@
     "pk": 7,
     "fields": {
       "bicycle": 7,
+      "user":2,
       "quantity": 7,
       "sale_date": "2024-07-07T14:10:00Z"
     }
@@ -544,7 +569,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/zTFQNYH4/helmet4.webp",
       "stock": 10,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   },
   {
@@ -557,7 +583,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/zVb5S7qQ/helmet3.webp",
       "stock": 6,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 10
     }
   },
   {
@@ -570,7 +597,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/8k074H7/helmet1.webp",
       "stock": 15,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 15
     }
   },
   {
@@ -583,7 +611,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/3m7ftXWg/helmet2.webp",
       "stock": 9,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 12
     }
   },
   {
@@ -596,7 +625,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/FkcSJD1t/light3.webp",
       "stock": 25,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   },
   {
@@ -609,7 +639,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/B5DhmPmK/light2.webp",
       "stock": 30,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   },
   {
@@ -622,7 +653,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/Lz2h22hT/light1.webp",
       "stock": 18,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 12
     }
   },
   {
@@ -635,7 +667,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/WWDKp7Q7/gloves3.webp",
       "stock": 14,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   },
   {
@@ -648,7 +681,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/8gYvH4f6/gloves2.webp",
       "stock": 20,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   },
   {
@@ -661,7 +695,8 @@
       "category": 2,
       "image_url": "https://i.ibb.co/VYRsVLhN/gloves1.webp",
       "stock": 22,
-      "type": "accessory"
+      "type": "accessory",
+      "discount": 0
     }
   }
 ]

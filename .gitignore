@@ -20,3 +20,4 @@ local_settings.py
 frontend_cart_example.js
 test_cart_final.py
 test_cart.py
+test_enhanced_cart.py

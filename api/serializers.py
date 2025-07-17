@@ -31,5 +31,5 @@ class ProductWithDetailsSerializer(serializers.ModelSerializer):
         model = Product
         fields = [
             'id', 'name', 'price', 'description', 'image_url',
-            'stock', 'category', 'type', 'bicycle'
+            'stock', 'category', 'type', 'bicycle', 'discount'
         ]

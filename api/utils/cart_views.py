@@ -31,7 +31,7 @@ def add_to_cart(request):
     # Actualizar o insertar producto con categoría
     cart_data[str(product_id)] = {
         "quantity": quantity,
-        "category": product.category.id  # Usar el nombre de la categoría como string
+        "category": product.category.name  # Usar el nombre de la categoría como string
     }
 
     # Guardar de nuevo en Redis
@@ -50,9 +50,37 @@ def view_cart(request):
     current_cart = redis_client.get(cart_key)
     if current_cart:
         cart_data = json.loads(current_cart)
-        return Response(cart_data)
+        
+        # Enriquecer datos del carrito con información de productos
+        enriched_cart = []
+        for product_id, cart_item in cart_data.items():
+            try:
+                product = Product.objects.get(id=product_id)
+                enriched_cart.append({
+                    "id": product.id,
+                    "name": product.name,
+                    "image_url": product.image_url,
+                    "price": str(product.price),  # Convertir Decimal a string para JSON
+                    "quantity": cart_item["quantity"],
+                    "category": cart_item["category"],
+                    "type": product.type,
+                    "subtotal": str(product.price * cart_item["quantity"])
+                })
+            except Product.DoesNotExist:
+                # Si el producto ya no existe, lo omitimos del carrito
+                continue
+        
+        return Response({
+            "items": enriched_cart,
+            "total_items": len(enriched_cart),
+            "total_amount": str(sum(float(item["subtotal"]) for item in enriched_cart))
+        })
     else:
-        return Response({})
+        return Response({
+            "items": [],
+            "total_items": 0,
+            "total_amount": "0.00"
+        })
 
 
 @api_view(['POST'])
@@ -132,3 +160,70 @@ def clear_cart(request):
     redis_client.delete(cart_key)
     
     return Response({"message": "Carrito vaciado completamente"})
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def view_cart_detailed(request):
+    """
+    Versión detallada del carrito que incluye información específica de bicicletas
+    """
+    user_id = request.user.id
+    cart_key = f"cart:{user_id}"
+    
+    # Leer el carrito actual
+    current_cart = redis_client.get(cart_key)
+    if current_cart:
+        cart_data = json.loads(current_cart)
+        
+        # Enriquecer datos del carrito con información completa de productos
+        enriched_cart = []
+        for product_id, cart_item in cart_data.items():
+            try:
+                product = Product.objects.get(id=product_id)
+                
+                # Datos básicos del producto
+                product_info = {
+                    "id": product.id,
+                    "name": product.name,
+                    "image_url": product.image_url,
+                    "price": str(product.price),
+                    "description": product.description,
+                    "quantity": cart_item["quantity"],
+                    "category": cart_item["category"],
+                    "type": product.type,
+                    "stock": product.stock,
+                    "subtotal": str(product.price * cart_item["quantity"])
+                }
+                
+                # Si es una bicicleta, agregar información específica
+                if product.type == 'bicycle':
+                    try:
+                        bicycle = product.bicycle
+                        product_info["bicycle_details"] = {
+                            "bike_type": bicycle.bike_type,
+                            "wheel_size": bicycle.wheel_size,
+                            "color": bicycle.color,
+                            "material": bicycle.material,
+                            "weight": str(bicycle.weight) if bicycle.weight else None
+                        }
+                    except:
+                        product_info["bicycle_details"] = None
+                
+                enriched_cart.append(product_info)
+                
+            except Product.DoesNotExist:
+                # Si el producto ya no existe, lo omitimos del carrito
+                continue
+        
+        return Response({
+            "items": enriched_cart,
+            "total_items": len(enriched_cart),
+            "total_amount": str(sum(float(item["subtotal"]) for item in enriched_cart))
+        })
+    else:
+        return Response({
+            "items": [],
+            "total_items": 0,
+            "total_amount": "0.00"
+        })

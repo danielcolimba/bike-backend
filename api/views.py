@@ -17,6 +17,11 @@ class ProductListAPIView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductWithDetailsSerializer
 
+class TopDiscountedGearAPIView(generics.ListAPIView): 
+    serializer_class = ProductWithDetailsSerializer
+    def get_queryset(self):
+        return Product.objects.filter(discount__gt=0).order_by('-discount')[:3]
+    
 
 class TopSellingBicyclesAPIView(APIView):
     def get(self, request):
