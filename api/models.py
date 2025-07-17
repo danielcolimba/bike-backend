@@ -1,6 +1,14 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.conf import settings
 from django.db import models
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    credit = models.DecimalField(max_digits=10, decimal_places=2, default=1000.00)
+    
+    def __str__(self):
+        return f"{self.user.username} - Credit: ${self.credit}"
 
 
 class Category(models.Model):
@@ -30,6 +38,6 @@ class Bicycle(models.Model):
 
 class BicycleSale(models.Model):
     bicycle = models.ForeignKey(Bicycle, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
     sale_date = models.DateTimeField(auto_now_add=True)

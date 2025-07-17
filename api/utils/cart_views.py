@@ -64,7 +64,8 @@ def view_cart(request):
                     "quantity": cart_item["quantity"],
                     "category": cart_item["category"],
                     "type": product.type,
-                    "subtotal": str(product.price * cart_item["quantity"])
+                    "subtotal": str(product.price * cart_item["quantity"]),
+                    "discount": product.discount 
                 })
             except Product.DoesNotExist:
                 # Si el producto ya no existe, lo omitimos del carrito
@@ -81,6 +82,24 @@ def view_cart(request):
             "total_items": 0,
             "total_amount": "0.00"
         })
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def checkout_cart(request):
+    user_id = request.user.id
+    cart_key = f"cart:{user_id}"
+
+    # Leer el carrito actual
+    current_cart = redis_client.get(cart_key)
+    if current_cart:
+        cart_data = json.loads(current_cart)
+
+        # Aquí iría la lógica para procesar el pago
+        # Por simplicidad, solo vaciaremos el carrito
+        redis_client.delete(cart_key)
+        return Response({"message": "Carrito procesado y vaciado"})
+    else:
+        return Response({"error": "Carrito vacío"}, status=404)
 
 
 @api_view(['POST'])
