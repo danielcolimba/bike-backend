@@ -9,9 +9,23 @@ from django.db.models import Sum
 from rest_framework.permissions import IsAuthenticated
 from django.db import transaction
 from decimal import Decimal
+from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
 
 import redis
 from django.http import JsonResponse
+
+# Health check endpoint
+class HealthCheckView(APIView):
+    """
+    Endpoint para verificar el estado de salud del servicio
+    """
+    def get(self, request):
+        return Response({
+            'status': 'healthy',
+            'service': 'bike-backend',
+            'version': '1.0.0'
+        }, status=status.HTTP_200_OK)
 
 # Create your views here.
 class ProductListAPIView(generics.ListAPIView):
@@ -297,3 +311,40 @@ class DebugTokenView(APIView):
             debug_info["simplejwt_valid"] = False
         
         return Response(debug_info, status=200)
+
+
+class LoginView(APIView):
+    """
+    Endpoint simple de login para el frontend
+    """
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        
+        if not username or not password:
+            return Response({
+                'error': 'Username and password are required'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Autenticar usuario
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            # Generar token JWT
+            refresh = RefreshToken.for_user(user)
+            access_token = refresh.access_token
+            
+            return Response({
+                'success': True,
+                'access_token': str(access_token),
+                'refresh_token': str(refresh),
+                'user': {
+                    'id': user.id,
+                    'username': user.username,
+                    'email': user.email
+                }
+            }, status=status.HTTP_200_OK)
+        else:
+            return Response({
+                'error': 'Invalid credentials'
+            }, status=status.HTTP_401_UNAUTHORIZED)

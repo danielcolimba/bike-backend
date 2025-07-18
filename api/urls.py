@@ -1,9 +1,11 @@
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
-from .views import ProductListAPIView, TopSellingBicyclesAPIView, TopDiscountedGearAPIView, BuyCheckoutView, UserCreditView, DebugCheckoutView, DebugTokenView
+from .views import ProductListAPIView, TopSellingBicyclesAPIView, TopDiscountedGearAPIView, BuyCheckoutView, UserCreditView, DebugCheckoutView, DebugTokenView, HealthCheckView, LoginView
 from api.utils import cart_views
 
 urlpatterns = [
+    path('health/', HealthCheckView.as_view(), name='health-check'),
+    path('login/', LoginView.as_view(), name='login'),
     path('products/', ProductListAPIView.as_view(), name='product-list'),
     path('top-bicycles/', TopSellingBicyclesAPIView.as_view(), name='top-bicycles'),
     path('gear-discounts/', TopDiscountedGearAPIView.as_view(), name='gear-discounts'),

@@ -6,7 +6,13 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings')
+    # En producción usamos settings_prod.py
+    env = os.environ.get('DJANGO_ENV', 'development')
+    if env == 'production':
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings_prod')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings')
+    
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

@@ -11,6 +11,11 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings')
+# En producción usamos settings_prod.py
+env = os.environ.get('DJANGO_ENV', 'development')
+if env == 'production':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings_prod')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'royalbike.settings')
 
 application = get_wsgi_application()
