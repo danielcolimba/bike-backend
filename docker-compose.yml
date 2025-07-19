@@ -1,5 +1,8 @@
 services:
   frontend:
+    build:
+      context: ../bike-frontend/royal-bike
+      dockerfile: dockerfile
     image: my-frontend
     container_name: frontend
     ports:
@@ -16,6 +19,9 @@ services:
 
 
   backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: bike-backend:latest
     env_file:
       - .env
@@ -51,6 +57,9 @@ services:
     #   - ./postgres_data:/var/lib/postgresql/data
 
   auth:
+    build:
+      context: ../bike-auth
+      dockerfile: Dockerfile
     image: bike-auth:latest
     container_name: bike-auth-app
     ports:
@@ -88,6 +97,9 @@ services:
     restart: on-failure:2
 
   cart:
+    build:
+      context: ../bike-cartredis
+      dockerfile: Dockerfile
     image: cartredis:optimized
     container_name: bike-cart-service
     ports:
